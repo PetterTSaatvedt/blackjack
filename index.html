@@ -11,31 +11,33 @@
     <div>
         <h1 class="title">Blackjack</h1>
 
-        <section class="upper">
+        <section id="menu">
             <div class="money">
                 <h3>Your money:</h3>
-                <p id="player-money">100</p>
+                <p id="player-money"></p>
             </div>
 
             <div class="place-bet">
                 <p>Place your bets:</p>
-                <input type="text" id="total" value="0">
+                <input type="text" id="bet" value="0">
             </div>
-            <button class="start-btn">Start game</button>
+            <button class="start-btn" onclick="bet()">Start game</button>
         </section>
         
-        <section class="game">
+        <section id="game">
             <div class="dealer">
-                <h3>Dealer's total:</h3>
-                <p>Dealer's cards:</p>
+                <h3>Dealer's total:<p id="dealer-total"></p></h3>
+                <h4>Dealer's cards:<p id="dealer-cards"></p></h4>
             </div>
             <div class="player">
-                <h3>Your total:</h3>
-                <p>Your cards:</p>
-                <button>Hit</button>
-                <button>Stand</button>
+                <h3>Your total:<p id="player-total"></p></h3>
+                <h4>Your cards: <p id="player-cards"></p></h4>
+                <button id="hit" onclick="hit()">Hit</button>
+                <button id="stand">Stand</button>
             </div>
         </section>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

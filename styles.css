@@ -13,7 +13,7 @@ body {
     text-align: center;
 }
 
-.upper {
+#menu {
     background-color: rgb(10, 52, 10);
     padding: 20px;
     border-radius: 5px;
@@ -64,7 +64,8 @@ body {
     cursor: pointer;
 }
 
-.game {
+#game {
+    visibility: hidden;
     width: 600px;
     margin-top: 40px;
     display:flex;
