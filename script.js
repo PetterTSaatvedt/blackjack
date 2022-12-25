@@ -32,25 +32,99 @@ var playercard2 = Math.floor(Math.random() * 11) + 1;
 var dealercard1 = Math.floor(Math.random() * 11) + 1;
 var dealercard2 = Math.floor(Math.random() * 11) + 1;
 
+// Values for gamelogic
+var playerTotal = 0;
+var dealerTotal = 0;
+var didHit = false;
+var didStand = false;
+var gameIsAlive = false;
+
 // Start game
 function start(){
     menu.style.display = 'none';
     game.style.visibility = 'visible';
 
     player_total.innerHTML = playercard1 + playercard2;
+    playerTotal = playercard1 + playercard2;
+
     dealer_total.innerHTML = dealercard1;
+    dealerTotal = dealercard1;
 
     player_cards.innerHTML = playercard1 + ' --- ' + playercard2;
     dealer_cards.innerHTML = dealercard1 + ' --- ' + '?';
+
+    gameIsAlive = true;
+    
+    gameLogic();
 }
 
+// Game logic
+function gameLogic(){
+    while (gameIsAlive){
+        if(didHit){
+            newPlayerCard();
+
+            if(playerTotal > 21 && dealerTotal > playerTotal){
+                alert('You lost');
+                money -= bet;
+                player_money.innerHTML = money;
+            }
+            else if(playerTotal == 21 && dealerTotal != 21){
+                alert('You won!');
+                money += bet;
+                player_money.innerHTML = money;
+            }
+        }
+        if(didStand){
+            var stand_button = document.getElementById('stand');
+            stand_button.style.display = 'none';
+
+            if(playerTotal < 21 && dealerTotal > playerTotal && dealerTotal <= 21){
+                alert('You lost');
+                money -= bet;
+                player_money.innerHTML = money;
+            }
+            else if(playerTotal == 21 && dealerTotal != 21){
+                alert('You won!');
+                money += bet;
+                player_money.innerHTML = money;
+            }
+            else if (playerTotal < 21 && dealerTotal < playerTotal){
+                alert('You won!');
+                money += bet;
+                player_money.innerHTML = money;
+            }
+        } else {
+            console.log('You lost!')
+            gameIsAlive = false;
+        }
+    }
+    
+    
+}
+
+// Hit
 function hit(){
+    didHit = true;
+}
+
+// New player card on hit
+function newPlayerCard(){
     var newPlayerCard = newCard();
     player_cards.innerHTML += ' --- ' + newPlayerCard;
     player_total.innerHTML = parseInt(player_total.innerHTML) + newPlayerCard;
+    playerTotal += newPlayerCard;
 }
 
-// New card
+// New dealer card on stand
+function newDealerCard(){
+    var newDealerCard = newCard();
+    dealer_cards.innerHTML += ' --- ' + newDealerCard;
+    dealer_total.innerHTML = parseInt(dealer_total.innerHTML) + newDealerCard;
+    dealerTotal += newDealerCard;
+}
+
+// New card generator
 function newCard(){
     return Math.floor(Math.random() * 11) + 1;
 }
