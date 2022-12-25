@@ -9,9 +9,33 @@
 </head>
 <body>
     <div>
-        <h1>Blackjack</h1>
-        <h3>Total:</h3>
-        <button>Start game</button>
+        <h1 class="title">Blackjack</h1>
+
+        <section class="upper">
+            <div class="total">
+                <h3>Your total:</h3>
+                <p>0</p>
+            </div>
+
+            <div class="place-bet">
+                <p>Place your bets:</p>
+                <input type="text" id="total" value="0">
+            </div>
+            <button class="start-btn">Start game</button>
+        </section>
+        
+        <section class="game">
+            <div class="dealer">
+                <h3>Dealer's total:</h3>
+                <p>Dealer's cards:</p>
+            </div>
+            <div class="player">
+                <h3>Your total:</h3>
+                <p>Your cards:</p>
+                <button>Hit</button>
+                <button>Stand</button>
+            </div>
+        </section>
     </div>
 </body>
 </html>
