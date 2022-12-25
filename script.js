@@ -43,7 +43,6 @@ var gameIsAlive = false;
 function start(){
     menu.style.display = 'none';
     game.style.visibility = 'visible';
-
     player_total.innerHTML = playercard1 + playercard2;
     playerTotal = playercard1 + playercard2;
 
@@ -53,59 +52,67 @@ function start(){
     player_cards.innerHTML = playercard1 + ' --- ' + playercard2;
     dealer_cards.innerHTML = dealercard1 + ' --- ' + '?';
 
-    gameIsAlive = true;
-    
     gameLogic();
 }
 
 // Game logic
 function gameLogic(){
-    while (gameIsAlive){
-        if(didHit){
-            newPlayerCard();
+    gameIsAlive = true;
 
-            if(playerTotal > 21 && dealerTotal > playerTotal){
-                alert('You lost');
-                money -= bet;
-                player_money.innerHTML = money;
-            }
-            else if(playerTotal == 21 && dealerTotal != 21){
-                alert('You won!');
-                money += bet;
-                player_money.innerHTML = money;
-            }
-        }
-        if(didStand){
-            var stand_button = document.getElementById('stand');
-            stand_button.style.display = 'none';
-
-            if(playerTotal < 21 && dealerTotal > playerTotal && dealerTotal <= 21){
-                alert('You lost');
-                money -= bet;
-                player_money.innerHTML = money;
-            }
-            else if(playerTotal == 21 && dealerTotal != 21){
-                alert('You won!');
-                money += bet;
-                player_money.innerHTML = money;
-            }
-            else if (playerTotal < 21 && dealerTotal < playerTotal){
-                alert('You won!');
-                money += bet;
-                player_money.innerHTML = money;
-            }
-        } else {
-            console.log('You lost!')
+    if(gameIsAlive && didHit){
+        if(playerTotal > 21){
+            alert('You lost');
             gameIsAlive = false;
+            money -= bet;
+            player_money.innerHTML = money;
+        }
+        else if(playerTotal == 21 && dealerTotal != 21){
+            alert('You won!');
+            money += bet;
+            player_money.innerHTML = money;
         }
     }
-    
-    
+
+    if(gameIsAlive && didStand){
+
+        if(playerTotal < 21 && dealerTotal > playerTotal && dealerTotal <= 21){
+            alert('You lost');
+            money -= bet;
+            player_money.innerHTML = money;
+        }
+        else if(playerTotal == 21 && dealerTotal != 21){
+            alert('You won!');
+            money += bet;
+            player_money.innerHTML = money;
+        }
+        else if (playerTotal < 21 && dealerTotal < playerTotal){
+            alert('You won!');
+            money += bet;
+            player_money.innerHTML = money;
+        }
+    }
+
+    if(playerTotal > 21){
+        alert('You lost');
+        gameIsAlive = false;
+        money -= bet;
+        player_money.innerHTML = money;
+    }
 }
 
 // Hit
 function hit(){
     didHit = true;
+    newPlayerCard();
+}
+
+// Stand
+function stand(){
+    didStand = true;
+    var stand_button = document.getElementById('stand');
+    stand_button.style.display = 'none';
+    var hit_button = document.getElementById('hit');
+    hit_button.style.display = 'none';
 }
 
 // New player card on hit
