@@ -22,12 +22,22 @@ body {
     align-items: center;
 }
 
-.total {
+.money {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 300px;
+}
+
+#player-money {
+    font-weight: bold;
+    background-color: goldenrod;
+    width: 100px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 3px;
+    color: rgb(10, 52, 10);
 }
 
 .place-bet {
@@ -45,19 +55,29 @@ body {
     background-color: rgb(32, 155, 40);
     border-radius: 3px;
     border: none;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.start-btn:hover {
+    scale: 1.1;
+    cursor: pointer;
 }
 
 .game {
+    width: 600px;
     margin-top: 40px;
     display:flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .dealer {
+    padding: 20px;
     background-color: rgb(10, 52, 10);
-    width: 300px;
+    margin-right: 5px;
+    width: 50%;
     height: 300px;
     display: flex;
     flex-direction: column;
@@ -65,8 +85,10 @@ body {
 }
 
 .player {
+    padding: 20px;
     background-color: rgb(10, 52, 10);
-    width: 300px;
+    margin-left: 5px;
+    width: 50%;
     height: 300px;
     display: flex;
     flex-direction: column;
