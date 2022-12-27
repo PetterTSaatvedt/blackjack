@@ -16,14 +16,19 @@ let bet_value = document.getElementById('bet').value;
 function bet(){
     checkBet();
     console.log(bet_value)
-    if(bet_value <= money){
-        money -= bet_value;
-        player_money.innerHTML = money;
-        start();
+    if(bet_value != 0){
+        if(bet_value <= money){
+            money -= bet_value;
+            player_money.innerHTML = money;
+            start();
+        }
+        else {
+            alert('You dont have enough money');
+        }
+    } else {
+        alert('You need to bet something');
     }
-    else {
-        alert('You dont have enough money');
-    }
+    
 }
 
 // Check bet value
@@ -61,7 +66,7 @@ function start(){
     console.log(dealerTotal);
     shuffleCards();
     menu.style.display = 'none';
-    game.style.visibility = 'visible';
+    game.style.display = 'flex';
     player_total.innerHTML = playercard1 + playercard2;
     playerTotal = playercard1 + playercard2;
 
@@ -78,7 +83,7 @@ function start(){
 // End game
 function end(){
     menu.style.display = 'flex';
-    game.style.visibility = 'hidden';
+    game.style.display = 'none';
     reset();
 }
 
@@ -120,6 +125,7 @@ function checkGameState(){
             alert('It\'s a draw');
             checkBet();
             money += bet_value;
+            player_money.innerHTML = money;
             gameIsAlive = false;
             end();
         }

@@ -19,7 +19,7 @@
 
             <div class="place-bet">
                 <p>Place your bets:</p>
-                <input type="text" id="bet" value="0">
+                <input type="text" id="bet">
             </div>
             <button class="start-btn" onclick="bet()">Start game</button>
         </section>
@@ -32,9 +32,16 @@
             <div class="player">
                 <h3>Your total:<p id="player-total"></p></h3>
                 <h4>Your cards: <p id="player-cards"></p></h4>
-                <button id="hit" onclick="hit()">Hit</button>
-                <button id="stand" onclick="stand()">Stand</button>
+                <div id="game-btns">
+                    <button id="hit" onclick="hit()">Hit</button>
+                    <button id="stand" onclick="stand()">Stand</button>
+                </div>
             </div>
+        </section>
+
+        <section id="end">
+            <h3 id="result">Test</h3>
+            <button id="return-btn">Return to menu</button>
         </section>
     </div>
 
