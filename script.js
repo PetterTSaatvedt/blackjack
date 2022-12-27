@@ -116,8 +116,10 @@ function checkGameState(){
             alert('You lost');
             gameIsAlive = false;
             end();
-        } else if(playerTotal == 21 && dealerTotal == 21){
-            alert('You lost');
+        } else if(playerTotal == dealerTotal){
+            alert('It\'s a draw');
+            checkBet();
+            money += bet_value;
             gameIsAlive = false;
             end();
         }
