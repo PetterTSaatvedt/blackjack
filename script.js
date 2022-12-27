@@ -54,7 +54,7 @@ function start(){
     dealer_cards.innerHTML = dealercard1 + ' --- ' + '?';
 
     gameIsAlive = true;
-    gameLogic();
+    checkGameState();
 }
 
 // End game
@@ -64,10 +64,10 @@ function end(){
 }
 
 // Game logic
+/*
 function gameLogic(){
     if(gameIsAlive && didHit){
         checkGameState();
-
     }
 
     if(gameIsAlive && didStand){
@@ -93,40 +93,34 @@ function gameLogic(){
         }
     }
 }
+*/
 
 function checkGameState(){
+    if( playerTotal == 21){
+        didStand = true;
+    }
+
     if(didStand){
         if(playerTotal > dealerTotal < 21){
             newDealerCard();
-
-            if(dealerTotal < 21){
-                newDealerCard();
-                checkGameState();
-            } else if (dealerTotal > 21){
+            checkGameState();
+        } else if (dealerTotal > 21){
                 alert('You won!');
                 money += (bet_value * 2);
                 player_money.innerHTML = money;
                 gameIsAlive = false;
-                end();
-            }   
+                end();   
         } else if (playerTotal < dealerTotal <= 21){
-    }
-}
-    
-    if(playerTotal > 21){
+            alert('You lost');
+            gameIsAlive = false;
+            end();
+        }
+    } else if(playerTotal > 21){
         alert('You lost');
         gameIsAlive = false;
         end();
-    } else if (dealerTotal > 21){
-        alert('You won!');
-        money += (bet_value * 2);
-        player_money.innerHTML = money;
-        gameIsAlive = false;
-        end();
-    } else if(playerTotal == 21 && dealerTotal != 21){
-        alert('You won!');
-        money += (bet_value * 2);
-        player_money.innerHTML = money;
+    } else if(playerTotal == 21 && dealerTotal == 21){
+        alert('You lost');
         gameIsAlive = false;
         end();
     }
@@ -135,7 +129,7 @@ function checkGameState(){
 
 // Hit
 function hit(){
-    didHit = true;
+    //didHit = true;
     newPlayerCard();
     dealer_cards.innerHTML = dealercard1 + ' --- ' + dealercard2;
     dealer_total.innerHTML = dealercard1 + dealercard2;
