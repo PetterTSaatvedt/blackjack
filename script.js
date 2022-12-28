@@ -106,6 +106,8 @@ function reset(){
     dealer_cards.innerHTML = '';
     stand_button.style.display = 'block';
     hit_button.style.display = 'block';
+    player_total.style.color = 'rgb(216, 216, 2)';
+    dealer_total.style.color = 'rgb(216, 216, 2)';
 }
 
 function checkGameState(){
@@ -122,12 +124,13 @@ function checkGameState(){
             newDealerCard();
             checkGameState();
         } else if (dealerTotal > 21){
-                checkBet();
-                money += (bet_value * 2);
-                player_money.innerHTML = money;
-                gameIsAlive = false;
-                result.innerHTML = 'You won! 🥳';
-                endMenu();
+            bust();
+            checkBet();
+            money += (bet_value * 2);
+            player_money.innerHTML = money;
+            gameIsAlive = false;
+            result.innerHTML = 'You won! 🥳';
+            endMenu();
         } else if (playerTotal < dealerTotal && dealerTotal <= 21){
             gameIsAlive = false;
             result.innerHTML = 'You lost! 😢';
@@ -146,6 +149,7 @@ function checkGameState(){
         result.innerHTML = 'BUST! You lost! 😢';
         endMenu();
     } else if(dealerTotal > 21){
+        bust();
         checkBet();
         money += (bet_value * 2);
         player_money.innerHTML = money;
@@ -178,7 +182,11 @@ function stand(){
 
 // Bust
 function bust(){
-    player_total.style.color = 'red';
+    if (playerTotal > 21){
+        player_total.style.color = 'red';
+    } else if (dealerTotal > 21){
+        dealer_total.style.color = 'red';
+    }
 }
 
 // New player card on hit
