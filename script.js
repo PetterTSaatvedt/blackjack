@@ -125,23 +125,31 @@ function checkGameState(){
                 money += (bet_value * 2);
                 player_money.innerHTML = money;
                 gameIsAlive = false;
-                result.innerHTML = 'You won!';
+                result.innerHTML = 'You won! 🥳';
                 endMenu();
         } else if (playerTotal < dealerTotal && dealerTotal <= 21){
             gameIsAlive = false;
-            result.innerHTML = 'You lost!';
+            result.innerHTML = 'You lost! 😢';
             endMenu();
         } else if(playerTotal == dealerTotal){
             checkBet();
             money = parseInt(money) + parseInt(bet_value);
             player_money.innerHTML = money;
             gameIsAlive = false;
-            result.innerHTML = 'It\'s a draw!';
+            result.innerHTML = 'It\'s a draw! 🤷';
             endMenu();
         }
     } else if(playerTotal > 21){
+        bust();
         gameIsAlive = false;
-        result.innerHTML = 'You lost!';
+        result.innerHTML = 'BUST! You lost! 😢';
+        endMenu();
+    } else if(dealerTotal > 21){
+        checkBet();
+        money += (bet_value * 2);
+        player_money.innerHTML = money;
+        gameIsAlive = false;
+        result.innerHTML = 'You won! 🥳';
         endMenu();
     }
 }
@@ -165,6 +173,11 @@ function stand(){
     dealer_total.innerHTML = dealercard1 + dealercard2;
     dealerTotal = dealercard1 + dealercard2;
     checkGameState();
+}
+
+// Bust
+function bust(){
+    player_total.style.color = 'red';
 }
 
 // New player card on hit
