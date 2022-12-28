@@ -110,6 +110,9 @@ function reset(){
 function checkGameState(){
     if( !didStand && playerTotal == 21){
         didStand = true;
+        dealer_cards.innerHTML = dealercard1 + ' --- ' + dealercard2;
+        dealer_total.innerHTML = dealercard1 + dealercard2;
+        dealerTotal = dealercard1 + dealercard2;
     }
 
     if(didStand){
