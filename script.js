@@ -5,6 +5,8 @@ var stand_button = document.getElementById('stand');
 var hit_button = document.getElementById('hit');
 let game = document.getElementById('game');
 let menu = document.getElementById('menu');
+let end_menu = document.getElementById('end');
+let result = document.getElementById('result');
 
 // Player money
 var money = 100;
@@ -80,6 +82,11 @@ function start(){
     checkGameState();
 }
 
+// Menu for ended game
+function endMenu(){
+    end_menu.style.display = 'flex';
+}
+
 // End game
 function end(){
     menu.style.display = 'flex';
@@ -111,28 +118,28 @@ function checkGameState(){
             newDealerCard();
             checkGameState();
         } else if (dealerTotal > 21){
-                alert('You won!');
                 checkBet();
                 money += (bet_value * 2);
                 player_money.innerHTML = money;
                 gameIsAlive = false;
-                end();
+                result.innerHTML = 'You won!';
+                endMenu();
         } else if (playerTotal < dealerTotal && dealerTotal <= 21){
-            alert('You lost');
             gameIsAlive = false;
-            end();
+            result.innerHTML = 'You lost!';
+            endMenu();
         } else if(playerTotal == dealerTotal){
-            alert('It\'s a draw');
             checkBet();
             money = parseInt(money) + parseInt(bet_value);
             player_money.innerHTML = money;
             gameIsAlive = false;
-            end();
+            result.innerHTML = 'It\'s a draw!';
+            endMenu();
         }
     } else if(playerTotal > 21){
-        alert('You lost');
         gameIsAlive = false;
-        end();
+        result.innerHTML = 'You lost!';
+        endMenu();
     }
 }
 

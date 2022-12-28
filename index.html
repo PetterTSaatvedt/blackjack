@@ -8,7 +8,7 @@
     <title>Blackjack</title>
 </head>
 <body>
-    <div>
+    
         <h1 class="title">Blackjack</h1>
 
         <section id="menu">
@@ -27,11 +27,11 @@
         <section id="game">
             <div class="dealer">
                 <h3>Dealer's total:<p id="dealer-total"></p></h3>
-                <h4>Dealer's cards:<p id="dealer-cards"></p></h4>
+                <h3>Dealer's cards:<p id="dealer-cards"></p></h3>
             </div>
             <div class="player">
                 <h3>Your total:<p id="player-total"></p></h3>
-                <h4>Your cards: <p id="player-cards"></p></h4>
+                <h3>Your cards: <p id="player-cards"></p></h3>
                 <div id="game-btns">
                     <button id="hit" onclick="hit()">Hit</button>
                     <button id="stand" onclick="stand()">Stand</button>
@@ -41,9 +41,9 @@
 
         <section id="end">
             <h3 id="result">Test</h3>
-            <button id="return-btn">Return to menu</button>
+            <button id="return-btn" onclick="end()">Return to menu</button>
         </section>
-    </div>
+    
 
     <script src="script.js"></script>
 </body>

@@ -18,7 +18,7 @@ body {
 
 #menu {
     background-color: rgb(10, 52, 10);
-    padding: 20px;
+    padding: 40px;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -68,32 +68,47 @@ body {
 }
 
 #game {
+    background-color: rgb(10, 52, 10);
+    padding: 40px;
+    border-radius: 10px;
     display: none;
-    width: auto;
+    width: 600px;
     margin-top: 40px;
     flex-direction: row;
+    align-items: center;
 }
 
 .dealer {
-    padding: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
     background-color: rgb(10, 52, 10);
+    border: 2px solid rgb(14, 88, 31);
     margin-right: 5px;
     width: 50%;
-    height: 300px;
+    min-height: 350px;
+    height: auto;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
 }
 
 .player {
-    padding: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
+    border: 2px solid rgb(14, 88, 31);
     background-color: rgb(10, 52, 10);
     margin-left: 5px;
     width: 50%;
-    height: 300px;
+    min-height: 350px;
+    height: auto;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
+}
+
+#player-cards, #dealer-cards, #player-total, #dealer-total {
+    font-size: 26px;
+    color: rgb(216, 216, 2);
 }
 
 #game-btns {
@@ -121,20 +136,17 @@ body {
     cursor: pointer;
 }
 
-
-
 #end {
+    display: none;
     background-color: rgb(10, 52, 10);
     border-radius: 5px;
-    padding: 20px;
+    padding: 40px;
     width: 600px;
     margin-top: 40px;
-    display:flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
-
 
 #return-btn {
     width: 200px;
