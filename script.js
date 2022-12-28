@@ -124,7 +124,7 @@ function checkGameState(){
         } else if(playerTotal == dealerTotal){
             alert('It\'s a draw');
             checkBet();
-            money += bet_value;
+            money = parseInt(money) + parseInt(bet_value);
             player_money.innerHTML = money;
             gameIsAlive = false;
             end();
