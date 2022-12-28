@@ -84,6 +84,8 @@ function start(){
 
 // Menu for ended game
 function endMenu(){
+    stand_button.style.display = 'none';
+    hit_button.style.display = 'none';
     end_menu.style.display = 'flex';
 }
 
