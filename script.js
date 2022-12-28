@@ -91,6 +91,7 @@ function endMenu(){
 function end(){
     menu.style.display = 'flex';
     game.style.display = 'none';
+    end_menu.style.display = 'none';
     reset();
 }
 
