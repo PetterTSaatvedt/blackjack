@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Ribeye&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
 
 body {
     background-color: rgb(15, 74, 15);
@@ -17,30 +18,51 @@ body {
 }
 
 #menu {
+    margin-top: 20px;
     background-color: rgb(10, 52, 10);
+    min-width: 200px;
+    width: 30%;
+    min-height: 500px;
     padding: 40px;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    transition: 0.7s;
+}
+
+#menu:hover{
+    box-shadow: 2px 2px 80px 2px rgb(18, 116, 41);
 }
 
 .money {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgb(37, 111, 24);
+    color: rgb(228, 228, 228);
+    border-radius: 50px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 300px;
+    justify-content: center;
+    align-items:center;
+    width: 70%;
+}
+#money-title {
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
 }
 
 #player-money {
     font-weight: bold;
-    background-color: goldenrod;
-    width: 100px;
     text-align: center;
-    padding: 5px;
+    margin: 10px;
+    padding: 10px;
+    font-size: 30px;
     border-radius: 3px;
-    color: rgb(10, 52, 10);
+    color: rgb(195, 192, 18);
+    font-family: 'Fredericka the Great', cursive;
 }
 
 .place-bet {
@@ -52,9 +74,9 @@ body {
 }
 
 .start-btn {
-    margin-top: 20px;
-    width: 200px;
-    height: 40px;
+    margin-bottom: 20px;
+    width: 60%;
+    height: 60px;
     background-color: rgb(32, 155, 40);
     border-radius: 3px;
     border: none;
@@ -63,7 +85,7 @@ body {
 }
 
 .start-btn:hover {
-    scale: 1.1;
+    scale: 1.05;
     cursor: pointer;
 }
 
@@ -177,5 +199,8 @@ body {
     }
     #return-btn {
         max-width: 50%;
+    }
+    .money {
+        flex-direction: column;
     }
 }
