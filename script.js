@@ -30,7 +30,6 @@ function bet(){
     } else {
         alert('You need to bet something');
     }
-    
 }
 
 // Check bet value

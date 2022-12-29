@@ -72,7 +72,7 @@ body {
     padding: 40px;
     border-radius: 10px;
     display: none;
-    width: 600px;
+    width: 50%;
     margin-top: 20px;
     flex-direction: row;
     align-items: center;
@@ -83,9 +83,9 @@ body {
     padding-left: 30px;
     background-color: rgb(10, 52, 10);
     border: 2px solid rgb(14, 88, 31);
-    margin-right: 5px;
+    margin: 5px;
     width: 50%;
-    min-height: 350px;
+    min-height: 45vh;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -97,9 +97,9 @@ body {
     padding-left: 30px;
     border: 2px solid rgb(14, 88, 31);
     background-color: rgb(10, 52, 10);
-    margin-left: 5px;
+    margin: 5px;
     width: 50%;
-    min-height: 350px;
+    min-height: 45vh;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -127,13 +127,15 @@ body {
     font-weight: bold;
     transition: 0.5s;
 }
+
 #hit {
-    margin-right: 20px;
+    margin-right: 10%;
 }
 
 #hit:hover, #stand:hover {
-    scale: 1.1;
+    scale: 1.05;
     cursor: pointer;
+    background-color:rgb(41, 191, 51);
 }
 
 #end {
@@ -141,7 +143,7 @@ body {
     background-color: rgb(10, 52, 10);
     border-radius: 5px;
     padding: 40px;
-    width: 600px;
+    width: 50%;
     margin-top: 40px;
     flex-direction: row;
     align-items: center;
@@ -149,16 +151,31 @@ body {
 }
 
 #return-btn {
-    width: 200px;
+    min-width: 30%;
+    width: auto;
     height: 40px;
     background-color: rgb(32, 155, 40);
     border-radius: 3px;
     border: none;
     font-weight: bold;
+    padding-left: 30px;
+    padding-right: 30px;
     transition: 0.5s;
 }
 
 #return-btn:hover {
-    scale: 1.1;
+    scale: 1.05;
     cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+    #game {
+        flex-direction: column;
+    }
+    .dealer, .player {
+        width: 80%;
+    }
+    #return-btn {
+        max-width: 50%;
+    }
 }
